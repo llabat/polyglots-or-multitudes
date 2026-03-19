@@ -1,4 +1,4 @@
-# Polyglots or Multitudes? Multilingual LLM Answers to Value-laden Multiple-Choice Questions
+# 🎭 Polyglots or Multitudes? Multilingual LLM Answers to Value-laden Multiple-Choice Questions
 
 This repository contains the code and data used in the paper:
 
@@ -6,7 +6,7 @@ This repository contains the code and data used in the paper:
 
 ---
 
-## Repository Structure
+## 📁 Repository Structure
 
 ```
 .
@@ -27,18 +27,19 @@ This repository contains the code and data used in the paper:
 
 ---
 
-## Dataset: MEVS
+## 📖 The MEVS Dataset
 
 The **Multilingual European Value Survey (MEVS)** is a curated dataset of:
 
-- 8 European languages  
 - 142 questions related to **values**
 - Human-translated 
+- in 8 European languages  
+
 
 
 ---
 
-## Getting Started
+## ♻️ Reproducing the results
 
 ### 1. Install dependencies
 
@@ -48,13 +49,20 @@ pip install -r requirements.txt
 
 ---
 
-### 2. Run an experiment
+### 2. Adjust the configuration file
+
+Define a list of models, questions, languages and other formatting variables and adjust infrastructure-dependent paths in the configuration file (cf. the **Configuration** section below).
+
+
+### 3. Run the experiments
+
+Run an experiment on a single model:
 
 ```
-python run.py --config exp_config.yaml
+python run.py --config exp_config.yaml --model model_name
 ```
 
-Or via launcher:
+Or administer MEVS questions to several models using the launcher:
 
 ```
 python launcher.py exp_config.yaml
@@ -64,13 +72,10 @@ python launcher.py exp_config.yaml
 
 ## ⚙️ Configuration
 
-All experiments are controlled via:
+All experiments are controlled via a yaml config file such as:
 
 ```yaml
 dataset:
-  path: mevs/data/MEVS.json
-
-  dataset:
   path: mevs/data/MEVS.json
   question_set: [13, 14, 15, 16, 17, 40, 41, 42, 43, 44]
   languages: ["FRE_FR", "SPA_ES", "ENG_GB"]
@@ -81,14 +86,19 @@ prompt:
   order: ["all"]
 
 models:
-  - QuixiAI/Wizard-Vicuna-7B-Uncensored
+  - meta-llama/Llama-3.1-8B-Instruct
   - Qwen/Qwen2.5-7B-Instruct
-
 precision: 32
+
 output_dir: results/
 ```
+### Questions ('dataset' > 'question_set')
 
-### 1. Model ('models')
+A list of question identifiers referring to MEVS questions. The development set of the paper is made up of 10 questions: [13, 14, 15, 16, 17, 40, 41, 42, 43, 44].
+
+The IDs of the 24 questions used for the most consistent models are: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 86, 87, 88, 89, 118, 119, 120, 121, 122, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138].
+
+### Model ('models')
 
 A *list* of models to administer the questionnaire to. This parameter is overriden when using run.py.
 
@@ -96,8 +106,7 @@ Additional model-related optional parameters include:
 - *precision*: a precision parameter for the version of the model to load (8, 16 or 32). We used 32 when possible, 16 otherwise.
 - *model_cache*: a path if models are stored in a custom cache (as is the case in our HPC)
 
-
-### 2. Language ('languages')
+### Language ('dataset' > 'languages')
 A *list* of language-country codes. Supported languages include :
 - English (**"ENG_GB"**)
 - Spanish (**"SPA_ES"**)
@@ -107,13 +116,13 @@ A *list* of language-country codes. Supported languages include :
 - Russian (**"RUS_RU"**)
 - Norwegian (**"NOR_NO"**)
 
-### 3. Symbol type ('symbols')
+### Symbol type ('prompt' > 'symbols')
 A *list* of symbol types ("letters", "numbers").
 
-### 4. Tail characters ('tail')
+### Tail characters ('prompt' > 'tail')
 A *list* of tail characters ("none", "space", "newline").
 
-### 5. Answer order ('order')
+### Answer order ('prompt' > 'order')
 
 A *list* of order types to test. Three types of arguments are supported:
 
@@ -123,16 +132,9 @@ A *list* of order types to test. Three types of arguments are supported:
 
 In our experiments, we used 'all' to test the orders **comprehensively**.
 
----
+### Output directory ('output_dir')
 
-## 🧪 Methodology
-
-For each question:
-
-1. Generate all prompt variants  
-2. Pass the prompts to the LLM
-3. Extract the answer token with highest log-probability
-
+A string denoting a path to a directory in which results will be saved batch by batch. If the directory does not exist, it will be created. Make sure you keep results from previous runs in that location to avoid rerunning prompts you have already processed.
 
 ---
 
@@ -157,13 +159,5 @@ For each question:
 Recommendation:
 - Code → MIT  
 - Data → CC-BY-NC  
-
----
-
-## Notes
-
-- This repo focuses on **MCQ-based evaluation**, not generation  
-- Requires access to models exposing **token probabilities**  
-- Designed for **controlled experimental reproducibility**
 
 ---
