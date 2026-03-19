@@ -1,0 +1,16 @@
+dataset:
+  path: mevs/data/MEVS.json
+  question_set: [13, 14, 15, 16, 17, 40, 41, 42, 43, 44]
+  languages: ["FRE_FR", "SPA_ES", "POR_PT", "GER_DE", "CZE_CZ", "RUS_RU", "NOR_NO", "ENG_GB"]
+
+prompt:
+  symbols: ["letters", "numbers"]
+  tail: ["none", "space", "newline"]
+  order: ["default", "random"] # ["all"]
+
+models:
+  - QuixiAI/Wizard-Vicuna-7B-Uncensored
+  - Qwen/Qwen2.5-7B-Instruct
+
+precision: 32
+output_dir: results/
