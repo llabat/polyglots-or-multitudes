@@ -155,10 +155,12 @@ A string denoting a path to a directory in which results will be saved batch by 
 
 ## 📜 License
 
-*(TODO — you need to decide this explicitly)*
+**Code**
 
-Recommendation:
-- Code → MIT  
-- Data → CC-BY-NC  
+The code in this repository is licensed under the MIT License.
+
+**Data (MEVS)**
+
+The MEVS dataset is derived from the Multilingual Corpus of Survey Questionnaire and is distributed under the Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) license.
 
 ---
