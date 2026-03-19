@@ -35,6 +35,7 @@ The **Multilingual European Value Survey (MEVS)** is a curated dataset of:
 - Human-translated 
 - in 8 European languages  
 
+For more details about how to reuse this dataset : go to [mevs/](https://github.com/llabat/polyglot-or-multitudes/tree/main/mevs)
 
 
 ---
