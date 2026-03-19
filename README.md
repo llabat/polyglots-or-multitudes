@@ -97,7 +97,7 @@ output_dir: results/
 
 A list of question identifiers referring to MEVS questions. The development set of the paper is made up of 10 questions: [13, 14, 15, 16, 17, 40, 41, 42, 43, 44].
 
-The IDs of the 24 questions used for the most consistent models are: [0, 1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 25, 26, 27, 28, 29, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 86, 87, 88, 89, 118, 119, 120, 121, 122, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138].
+The IDs of the 24 questions used for the most consistent models are: [13, 14, 15, 16, 17, 40, 41, 42, 43, 44, 118, 119, 120, 121, 122, 127, 128, 129, 130, 131, 132, 133, 134, 135].
 
 ### Model ('models')
 
