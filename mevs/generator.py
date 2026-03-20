@@ -1,7 +1,7 @@
 import json
-from mevs.const import SYMBOLS, TAIL_CHARS, ANSWER_DICT
+from .const import SYMBOLS, TAIL_CHARS, ANSWER_DICT
 
-MEVS_PATH = "../data/MEVS.json"
+MEVS_PATH = "./data/MEVS.json"
 
 def generate_question_string(mevs, qid, language, order_code = None, symbols = "letters", tail_char = "none"):
     """
@@ -78,10 +78,6 @@ def generate_question_string(mevs, qid, language, order_code = None, symbols = "
             raise KeyError(
                 f"Missing translation for response '{responses[int(idx)]}' in language '{language}'"
             )
-    
-    question_string = question_string + ANSWER_DICT[language] + TAIL_CHARS[tail_char]
-
-    return {
-        "prompt": question_string,
-        "answer_tokens": symbols
-    }
+            
+    return {"prompt" : question_string + ANSWER_DICT[language] + TAIL_CHARS[tail_char],
+	   "answer_tokens" : symbols}
