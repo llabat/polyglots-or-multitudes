@@ -143,11 +143,22 @@ A string denoting a path to a directory in which results will be saved batch by 
 ## 📚 Citation
 
 ```bibtex
-@article{labat2026polyglots,
-  title={Polyglots or Multitudes? Multilingual LLM Answers to Value-laden Multiple-Choice Questions},
-  author={Labat, Léo and Ollion, Etienne and Yvon, François},
-  year={2026},
-  journal={EACL}
+@inproceedings{labat-etal-2026-polyglots,
+    title = "Polyglots or Multitudes? Multilingual {LLM} Answers to Value-laden Multiple-Choice Questions",
+    author = "Labat, L{\'e}o  and
+      Ollion, Etienne  and
+      Yvon, Fran{\c{c}}ois",
+    editor = "Demberg, Vera  and
+      Inui, Kentaro  and
+      Marquez, Llu{\'i}s",
+    booktitle = "Proceedings of the 19th Conference of the {E}uropean Chapter of the {A}ssociation for {C}omputational {L}inguistics (Volume 1: Long Papers)",
+    month = mar,
+    year = "2026",
+    address = "Rabat, Morocco",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2026.eacl-long.156/",
+    pages = "3382--3398",
+    ISBN = "979-8-89176-380-7",
 }
 ```
 
