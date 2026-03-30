@@ -161,17 +161,3 @@ A string denoting a path to a directory in which results will be saved batch by 
     ISBN = "979-8-89176-380-7",
 }
 ```
-
----
-
-## 📜 License
-
-**Code**
-
-The code in this repository is licensed under the MIT License.
-
-**Data (MEVS)**
-
-The MEVS dataset is derived from the Multilingual Corpus of Survey Questionnaire and is distributed under the Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) license.
-
----
